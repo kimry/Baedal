@@ -220,7 +220,7 @@ class RequestControllerTest extends BaseControllerTest{
         userRepository.save(customer);
 
         //when
-        ResultActions resultActions = mockMvc.perform(post("/requests/1/accept")
+        ResultActions resultActions = mockMvc.perform(post("/requests/0/accept")
                 .header("Token","Token " + jwtProvider.createJwt(driver.getEmail())));
 
         //then
@@ -256,7 +256,7 @@ class RequestControllerTest extends BaseControllerTest{
 
     }
 
-    @DisplayName("배차 요청 승인")
+    @DisplayName("배차 요청 완료")
     @Test
     void completeRequestTest() throws Exception{
 
@@ -283,7 +283,7 @@ class RequestControllerTest extends BaseControllerTest{
 
     }
 
-    @DisplayName("배차 요청 승인 고객 승인 오류")
+    @DisplayName("배차 요청 완료 고객 승인 오류")
     @Test
     void completeRequestCustomerRequestCompleteErrorTest() throws Exception{
 
@@ -310,7 +310,7 @@ class RequestControllerTest extends BaseControllerTest{
 
     }
 
-    @DisplayName("배차 요청 승인 존재 오류")
+    @DisplayName("배차 요청 완료 존재 오류")
     @Test
     void completeRequestNotFoundRequestErrorTest() throws Exception{
 
@@ -338,7 +338,7 @@ class RequestControllerTest extends BaseControllerTest{
     }
 
 
-    @DisplayName("배차 요청 승인 승인 상태 오류")
+    @DisplayName("배차 요청 완료 승인 상태 오류")
     @Test
     void completeRequestNotAcceptErrorTest() throws Exception{
 
@@ -364,7 +364,7 @@ class RequestControllerTest extends BaseControllerTest{
 
     }
 
-    @DisplayName("배차 요청 승인 기사 불일치 오류")
+    @DisplayName("배차 요청 완료 기사 불일치 오류")
     @Test
     void completeRequestNotMatchDriverErrorTest() throws Exception{
 
